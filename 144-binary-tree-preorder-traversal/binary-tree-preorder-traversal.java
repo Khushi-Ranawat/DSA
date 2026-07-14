@@ -14,17 +14,16 @@
  * }
  */
 class Solution {
-    public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> ans = new ArrayList<>();
-        dfs(root, ans);
-        return ans;
+    public void dfs(TreeNode root,List<Integer> ans) {
+        if (root==null) return;
+        ans.add(root.val);
+        dfs(root.left,ans);
+        dfs(root.right,ans);
+
     }
-    private void dfs(TreeNode node, List<Integer> ans){
-        if(node == null){
-            return;
-        }
-        ans.add(node.val);
-        dfs(node.left, ans);
-        dfs(node.right, ans);
+    public List<Integer> preorderTraversal(TreeNode root){
+        List<Integer> ans = new ArrayList<>();
+        dfs(root,ans);
+        return ans;
     }
 }
